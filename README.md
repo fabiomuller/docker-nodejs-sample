@@ -48,7 +48,7 @@
 
   Um die Applikation in Hintergrund laufen zu lassen einfach```docker compose down``` im Terminal eingeben.
 
-  ![Bild Installation](./images/Installation.png)
+  ![Bild Installation](./images/installation.png)
 
   In der Applikation können nur To-Do's eingetragen, abgehackt und gelöscht werden.
 
