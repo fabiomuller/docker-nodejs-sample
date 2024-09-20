@@ -1,48 +1,55 @@
-# **Thema:** Erstellen einer ToDo-Applikation mit Markdown, Git, GitHub und Docker
+# **Installation des Projekts**
 
-In dieser Abschlussaufgabe werden alle erlernten Fähigkeiten in den Bereichen **Markdown**, **Git**, **GitHub** und **Docker** kombiniert. Die Aufgabe besteht darin, eine ToDo-Applikation zu erstellen und diese in einem Docker-Container bereitzustellen.
+### **Klonen des Repositories**
 
-### **Aufgabenstellung:**
+  Um ein Repositorie zu klonen muss man den Link zum gewünsten Repositorie kopieren und im Terminal mit ```git clone```  und dem entsprechenden Link herunterladen.
 
-1. **GitHub-Fork erstellen:**
-   - Erstelle einen **Fork** des folgenden GitHub-Repositories: [docker-nodejs-sample](https://github.com/ICT-BLJ/docker-nodejs-sample).
-   - Clone deinen Fork lokal auf deinen Computer.
+  ![Bild Klonen](./images/repositorie_klonen.png)
 
-2. **Erstellen einer README-Datei in Markdown:**
-   - Erstelle eine **README.md** Datei im Root-Verzeichnis des Projekts.
-   - Die README soll alle Schritte zur **Installation des Projekts** enthalten. Dazu gehören:
-     - Klonen des Repositories
-     - Installation der notwendigen Pakete
-     - Docker-Konfiguration und -Installation
-     - Starten der Applikation in einem Docker-Container
-   - Nutze [Markdown](https://www.markdownguide.org/cheat-sheet/) für die Struktur und Formatierung der Datei.
+### **Installation der notwendigen Pakete**
 
-3. **Dokumentation der Vorgehensweise:**
-   - Verfasse eine vollständige **Dokumentation in Word**, in der die Arbeitsschritte beschrieben werden. Diese Schritte sind:
-     - Klonen des Repositories
-     - Einrichtung der Entwicklungsumgebung
-     - Erstellung der README.md
-     - Verwendung von Git (Commit, Push)
-     - Erstellung und Nutzung von Docker-Containern
-   - Verwende die während des Office-Kurses erarbeiteten Kenntnisse für das Erstellen dieses Dokuments.
+  Bei der Anwedung der Applikation werden noch Dateien gebarucht. Als Anwender muss man diese nicht einzel installieren. Mit dem Befehl ```docker init``` werden die notwendigen Dateien automatisch installiert:
+  ```dockerignore```
+  ```Dockerfile```
+  ```compose.yaml```
+  ```README.Docker.md```
 
-4. **Dockerize das Node.js-Projekt:**
-   - Verfolge die Anleitung unter [docs.docker.com](https://docs.docker.com/guides/language/nodejs/containerize/) ab dem Schritt **"Initialize Docker inits"**.
-   - Dein Ziel ist es, das Projekt in einem Docker-Container lauffähig zu machen, sodass am Ende eine **ToDo-Applikation** in einem Docker-Container bereitsteht.
+  Ausserdem werden mit dem Befehl auch diese wichtigen Pakete installiert, die wichtig für den Betrieb der Applikation sind:
+  ```express```
+  ```pg```
+  ```sqlite3```
+  ```uuid```
+  ```wait-port```
 
-5. **Git-Workflows:**
-   - Arbeite mit **Git**, um Änderungen regelmäßig zu committen und auf GitHub zu pushen.
-   - Verwende sinnvolle Commit-Nachrichten, um deinen Fortschritt zu dokumentieren.
-   - Stelle sicher, dass dein finaler Stand auf GitHub vorhanden ist.
+  Wichtig fürs entwickeln im Docker-Container sind diese Pakete:
+  ```jest```
+  ```nodemon```
+  ```prettier```
 
-6. **Abgabe:**
-   - **Dokumentation:** Lade die erstellte Word-Dokumentation (inkl. Screenshots und Beschreibung der Schritte) in dein Repository hoch.
-   - **GitHub-Link:** Stelle den Link zu deinem GitHub-Repository bereit, das den finalen Stand des Projekts enthält.
+  Credits: Benni's ChatGPT
 
-### **Ziele der Aufgabe:**
-- Anwendung und Vertiefung von Git und GitHub.
-- Verfassen einer strukturierten Anleitung mit Markdown.
-- Containerisieren einer Node.js-Anwendung mit Docker.
-- Dokumentation des gesamten Prozesses in einem Word-Dokument.
-  
-Viel Erfolg bei der Umsetzung!
+### **Docker-Konfiguration und -Installation**
+
+  Mit dem Command ```docker init``` kann man die Datei so konfigurieren, wie mann sie haben will.
+  Für diese Applikation sollte man die Folgenden Einstllungen machen.
+
+  What application platform does your project use? Node
+  What version of Node do you want to use? 18.0.0
+  Which package manager do you want to use? npm
+  What command do you want to use to start the app: node src/index.js
+  What port does your server listen on? 3000
+
+  ![Bild Konfigurieren](./images/konfiguration.png)
+
+### **Starten der Applikation in einem Docker-Container**
+
+  Mit dem Command ```docker compose up --build``` kann die Applikation gestartet werden und über den [Lokalen Host](http://localhost:3000/)
+  angezeigt werden.
+
+  Um die Applikation in Hintergrund laufen zu lassen einfach```docker compose down``` im Terminal eingeben.
+
+  ![Bild Installation](./images/Installation.png)
+
+  In der Applikation können nur To-Do's eingetragen, abgehackt und gelöscht werden.
+
+  ![Bild Applikation](./images/laufende_applikation.png)
